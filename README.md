@@ -27,4 +27,5 @@ http://example.com/esolat.php?ver=2&type=jsonp&kod=sgr03&callback=jsonpfunc
 
 **
 Dibuat oleh Ijat (ijat.my / reizn.com)
+**
 Sebarang pertanyaan? Email ke contact@ijat.my

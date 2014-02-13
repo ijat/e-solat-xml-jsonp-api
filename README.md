@@ -12,7 +12,7 @@ __X__ = adalah versi API. Hanya gantikan dengan 1 atau 2. Disyorkan menggunakan 
 
 __Y__ = type adalah format untuk diterima. Gantikan dengan xml atau json atau jsonp. (required)
 
-__Z__ = kod zon E-Solat. Lihat di bawah. (required)
+__Z__ = kod zon E-Solat. Lihat di laman e-solat Malaysia atau di page E-Solat API di Ijat.my.
 
 __V__ = hanya untuk type xml. Digunakan untuk AJAX. Biarkan kosong jika tiada.
 

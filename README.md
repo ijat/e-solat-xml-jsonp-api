@@ -1,4 +1,4 @@
-e-solat-xml-jsonp-api
+e-Solat XML/JSONP API
 =====================
 
 E-Solat XML/JSONP API adalah API third-party yang direka untuk mendapatkan waktu solat dari laman E-solat Malaysia.

@@ -1,7 +1,9 @@
 e-Solat XML/JSONP API
 =====================
 
-UPDATE: Berpindah ke http://source.ijat.my/e-solat-xml-json-api.git . 
+__UPDATE__
+Official link https://ijat.my/e-solat-xmljsonp-api
+
 
 E-Solat XML/JSONP API adalah API third-party yang direka untuk mendapatkan waktu solat dari laman E-solat Malaysia.
 Hanya waktu solat dalam negara sahaja.

@@ -1,14 +1,23 @@
 <?php 
  /*
- e-Solat XML/JSON/JSONP API
- Created by Ijat @ Ijat.my (Reizn.com)
+    e-Solat XML/JSON/JSONP API - A simple API to fetch Malaysia's prayers time from e-solat.gov.my.
+    Copyright (C) 2014-2015 Ijat
 
- This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License. 
- To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/ 
- or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-$version = "0.04 (Last-Modified: 13/02/2014)";
+$version = "0.04 rev 1 (Last-Modified: 13/02/2014)";
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
 header("Cache-Control: no-store, no-cache, must-revalidate"); 

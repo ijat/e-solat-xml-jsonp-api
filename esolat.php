@@ -1,7 +1,6 @@
 <?php 
  /*
     e-Solat XML/JSON/JSONP API - A simple API to fetch Malaysia's prayers time from e-solat.gov.my.
-    Copyright (C) 2014-2015 Ijat
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,7 +16,7 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-$version = "0.04 rev 1 (Last-Modified: 13/02/2014)";
+$version = "0.05 rev 1 (Last-Modified: 02/02/2017)";
 header("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
 header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT"); 
 header("Cache-Control: no-store, no-cache, must-revalidate"); 
@@ -36,13 +35,14 @@ else {
 
   $type = $_GET['type'];
   $kod = $_GET['kod'];
+  $format = $_GET['format'];
   $e_ver = $_GET['ver'];
   $call = $_GET['callback'];
 
-  if (!$e_ver or $e_ver == 1) {
+  if ($e_ver == 1) {
 	$txt = file_get_contents('http://www2.e-solat.gov.my/solat.php?kod='.$kod);
   }
-  else if ($e_ver == 2) {
+  else {
 	$txt = file_get_contents("http://www.e-solat.gov.my/web/my_waktusolat/mod_waktusolatget.php?negeri=;;;;;".$kod);
   }
   # 
@@ -83,13 +83,13 @@ else {
           'doy' => date("z") + 1,
           'hdate' => $hdate,
           'kod' => $kod,
-          'imsak' => $matches[1][0],
-          'subuh' => $matches[1][1],
-          'syuruk'=> $matches[1][2],
-          'zohor'=> $matches[1][3],
-          'asar'=> $matches[1][4],
-          'maghrib'=> $matches[1][5],
-          'isyak' => $matches[1][6],
+          'imsak' => ($format==12 ? strtoupper(date("g:i a", strtotime($matches[1][0]))) : $matches[1][0]),
+          'subuh' => ($format==12 ? strtoupper(date("g:i a", strtotime($matches[1][1]))) : $matches[1][1]),
+          'syuruk'=> ($format==12 ? strtoupper(date("g:i a", strtotime($matches[1][2]))): $matches[1][2]),
+          'zohor'=> ($format==12 ? strtoupper(date("g:i a", strtotime($matches[1][3]))) : $matches[1][3]),
+          'asar'=> ($format==12 ? strtoupper(date("g:i a", strtotime($matches[1][4]))) : $matches[1][4]),
+          'maghrib'=> ($format==12 ? strtoupper(date("g:i a", strtotime($matches[1][5]))) : $matches[1][5]),
+          'isyak' => ($format==12 ? strtoupper(date("g:i a", strtotime($matches[1][6]))) : $matches[1][6]),
           'version' => $version,
           'by' => 'Ijat [Ijat.my]',
     );
@@ -134,7 +134,7 @@ else {
 
     }
     else {
-      echo "<span style=\"font-family: Tahoma;font-size:13px;\">Reizn.com e-Solat API v".$version."<br/>----------------------------------------------------------------<br/><br/>Type unsupported. Only xml, json or jsonp type are supported.</span>";
+      echo "<span style=\"font-family: Tahoma;font-size:13px;\">Ijat.my e-Solat API v".$version."<br/>----------------------------------------------------------------<br/><br/>Type unsupported. Only xml, json or jsonp type are supported.</span>";
       die();
     }
   }
@@ -150,28 +150,4 @@ function GetBetween($var1="",$var2="",$pool){
 	}
 	return substr($result,0,$dd);
 }
-
-/*function HijriDate($txt) {
-	  $re1='(\\d+)';  # Integer Number 1
-	  $re2='(\\s+)';  # White Space 1
-	  $re3='((?:[a-z][a-z]+))'; # Word 1
-	  $re4='(\\s+)';  # White Space 2
-	  $re5='((?:(?:[1]{1}\\d{1}\\d{1}\\d{1})|(?:[2]{1}\\d{3})))(?![\\d])';  # Year 1
-	  if ($c=preg_match_all ("/".$re1.$re2.$re3.$re4.$re5."/is", $txt, $matches))
-	  {
-		  $int1=$matches[1][0];
-		  $ws1=$matches[2][0];
-		  $word1=$matches[3][0];
-		  $ws2=$matches[4][0];
-		  $year1=$matches[5][0];
-		  return "$int1 $ws1 $word1 $ws2 $year1";
-	  }
-	  else {return date("d/m/Y");}
-}
-
-function printVar($var) {
-    echo '<pre>';
-    var_dump($var); 
-    echo '</pre>';
-} */
 ?>
